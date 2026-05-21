@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDPR SME Compliance Maturity Table</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f9f7; color: #1a1a18; padding: 2rem; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 4px; color: #1a1a18; }
+  .subtitle { font-size: 13px; color: #5f5e5a; margin-bottom: 20px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #5f5e5a; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; background: #fff; border-radius: 10px; border: 0.5px solid #d3d1c7; overflow: hidden; }
+  th { font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #888780; padding: 8px 10px; border-bottom: 0.5px solid #b4b2a9; text-align: left; background: #f9f9f7; }
+  td { padding: 9px 10px; border-bottom: 0.5px solid #e8e6df; vertical-align: middle; color: #1a1a18; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f5f4f0; }
+  .cat-header td { background: #f1efe8; font-weight: 500; font-size: 12px; color: #5f5e5a; padding: 6px 10px; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+  .pill-red    { background: #FCEBEB; color: #791F1F; }
+  .pill-amber  { background: #FAEEDA; color: #633806; }
+  .pill-green  { background: #EAF3DE; color: #27500A; }
+  .pill-blue   { background: #E6F1FB; color: #0C447C; }
+  select { background: #f1efe8; border: 0.5px solid #b4b2a9; border-radius: 6px; padding: 4px 6px; font-size: 13px; color: #1a1a18; font-family: inherit; cursor: pointer; width: 56px; text-align: center; }
+  select:focus { outline: none; border-color: #888780; }
+  .score-bar { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 12px 14px; background: #fff; border-radius: 8px; border: 0.5px solid #d3d1c7; }
+  .score-label { font-size: 12px; color: #5f5e5a; flex: 1; }
+  .score-val { font-size: 18px; font-weight: 500; color: #1a1a18; }
+  .score-grade { font-size: 12px; color: #5f5e5a; margin-left: 4px; }
+  button { font-size: 12px; padding: 5px 12px; margin-left: 12px; background: transparent; border: 0.5px solid #b4b2a9; border-radius: 6px; cursor: pointer; color: #1a1a18; font-family: inherit; }
+  button:hover { background: #f1efe8; }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a18; color: #e8e6df; }
+    h1 { color: #e8e6df; }
+    .subtitle { color: #888780; }
+    .legend-item { color: #888780; }
+    table { background: #2c2c2a; border-color: #444441; }
+    th { background: #232321; color: #888780; border-bottom-color: #444441; }
+    td { border-bottom-color: #383836; color: #e8e6df; }
+    tr:hover td { background: #323230; }
+    .cat-header td { background: #232321; color: #888780; }
+    .pill-red    { background: #501313; color: #F7C1C1; }
+    .pill-amber  { background: #412402; color: #FAC775; }
+    .pill-green  { background: #173404; color: #C0DD97; }
+    .pill-blue   { background: #042C53; color: #B5D4F4; }
+    select { background: #2c2c2a; border-color: #444441; color: #e8e6df; }
+    .score-bar { background: #2c2c2a; border-color: #444441; }
+    .score-label { color: #888780; }
+    .score-val { color: #e8e6df; }
+    .score-grade { color: #888780; }
+    button { border-color: #444441; color: #e8e6df; }
+    button:hover { background: #323230; }
+  }
+</style>
+</head>
+<body>
+
+<h1>GDPR compliance maturity — SME self-assessment</h1>
+<p class="subtitle">Rate each area 1–5. Score calculates automatically. 1 = nothing in place · 3 = documented but not maintained · 5 = embedded, reviewed, evidenced.</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#E24B4A;"></div> Critical — legal exposure</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#EF9F27;"></div> Important — high risk if absent</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#639922;"></div> Recommended — good practice</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#378ADD;"></div> Maturing — proactive</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:32%">Compliance area</th>
+      <th style="width:38%">What good looks like</th>
+      <th style="width:14%">Priority</th>
+      <th style="width:16%">Your rating (1–5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cat-header"><td colspan="4">Foundation</td></tr>
+    <tr><td>Records of processing activities (ROPA)</td><td>Current, documented register covering all activities with retention periods</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Lawful basis documented</td><td>Each processing activity mapped to a specific lawful basis under Art. 6</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Privacy notice / policy</td><td>Transparent, up-to-date notice published; covers all Art. 13/14 requirements</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Data Processing Agreements</td><td>Signed DPAs in place with all vendors and SaaS tools handling personal data</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+
+    <tr class="cat-header"><td colspan="4">Consent &amp; rights</td></tr>
+    <tr><td>Consent management</td><td>Freely given, specific, recorded consent; easy withdrawal mechanism in place</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Subject rights process</td><td>Documented procedure for SARs, erasure, rectification; 1-month response met</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Cookie compliance</td><td>Consent banner; no non-essential cookies firing before consent given</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+
+    <tr class="cat-header"><td colspan="4">Security &amp; incidents</td></tr>
+    <tr><td>Breach response plan</td><td>Written plan; assigned owner; 72-hour DPA notification process documented</td><td><span class="pill pill-red">Critical</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Technical security measures</td><td>Encryption at rest and in transit, access controls, MFA, regular patching</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Data minimisation</td><td>Only data necessary for stated purpose collected; reviewed periodically</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Retention &amp; deletion</td><td>Retention schedule defined and enforced; deletion/anonymisation process verified</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+
+    <tr class="cat-header"><td colspan="4">People &amp; governance</td></tr>
+    <tr><td>Staff training</td><td>All staff trained on GDPR basics; records kept; refresher cycle in calendar</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Compliance owner assigned</td><td>Named individual accountable for GDPR; role documented; not ad hoc</td><td><span class="pill pill-green">Recommended</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Annual compliance review</td><td>Scheduled review of ROPA, policies, and DPAs; calendar invite exists</td><td><span class="pill pill-green">Recommended</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+
+    <tr class="cat-header"><td colspan="4">Advanced</td></tr>
+    <tr><td>Cross-border transfer mechanisms</td><td>SCCs or adequacy decisions documented for all non-EEA data flows</td><td><span class="pill pill-amber">Important</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Data Protection Impact Assessment</td><td>DPIA process exists for high-risk activities; documented and reviewed</td><td><span class="pill pill-green">Recommended</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Privacy by design</td><td>Data protection considered at the start of new projects and product decisions</td><td><span class="pill pill-blue">Maturing</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+    <tr><td>Legitimate interest assessments</td><td>Documented LIAs on file for any processing relying on legitimate interest</td><td><span class="pill pill-blue">Maturing</span></td><td><select onchange="updateScore()"><option value="0">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td></tr>
+  </tbody>
+</table>
+
+<div class="score-bar">
+  <div class="score-label">Overall maturity score <span id="rated-count" style="font-size:11px;">(rate items above to score)</span></div>
+  <div>
+    <span class="score-val" id="score-val">—</span>
+    <span class="score-grade" id="score-grade"></span>
+  </div>
+</div>
+
+<script>
+function updateScore() {
+  var selects = document.querySelectorAll('select');
+  var total = 0, count = 0;
+  selects.forEach(function(s) {
+    var v = parseInt(s.value);
+    if (v > 0) { total += v; count++; }
+  });
+  var el = document.getElementById('score-val');
+  var grade = document.getElementById('score-grade');
+  var ct = document.getElementById('rated-count');
+  if (count === 0) { el.textContent = '—'; grade.textContent = ''; ct.textContent = '(rate items above to score)'; return; }
+  var avg = total / count;
+  el.textContent = avg.toFixed(1) + ' / 5';
+  ct.textContent = '(' + count + ' of ' + selects.length + ' rated)';
+  if (avg >= 4.5) grade.textContent = 'Strong';
+  else if (avg >= 3.5) grade.textContent = 'Good';
+  else if (avg >= 2.5) grade.textContent = 'Developing';
+  else if (avg >= 1.5) grade.textContent = 'Early stage';
+  else grade.textContent = 'Needs urgent attention';
+}
+</script>
+</body>
+</html>
